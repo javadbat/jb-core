@@ -1,0 +1,35 @@
+{
+  "name": "jb-core",
+  "description": "jb core modules",
+  "type": "module",
+  "author": {
+		"name": "mohammad javad bathaei",
+		"email": "javadbat@gmail.com"
+	},
+  "keywords": [
+    "jb",
+    "jb-core",
+    "web-component tools",
+    "react component",
+    "event"
+  ],
+  "version": "0.0.1",
+  "bugs": "https://github.com/javadbat/jb-core/issues",
+  "license": "MIT",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/",
+    "dist/",
+    "react/",
+    "react/dist/"
+  ],
+  "main": "index.js",
+  "types": "./dist/modules/jb-core/lib/index.d.ts",
+  "repository": {
+		"type": "git",
+		"url": "git@github.com:javadbat/jb-core.git"
+  },
+  "dependencies": {
+  }
+}

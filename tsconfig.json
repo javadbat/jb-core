@@ -11,5 +11,5 @@
         "**/*.spec.ts",
         "dist",
     ],
-    "extends":"../tsconfig-module.json"
+    "extends":"../tsconfig-web-component.json"
 }

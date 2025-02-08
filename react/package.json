@@ -7,13 +7,9 @@
 		"email": "javadbat@gmail.com"
 	},
   "keywords": [
-    "jb",
-    "jb-core",
-    "web-component tools",
-    "react component",
-    "event"
+    "jb"
   ],
-  "version": "0.0.1",
+  "version": "1.0.0",
   "bugs": "https://github.com/javadbat/jb-core/issues",
   "license": "MIT",
   "files": [
@@ -23,7 +19,7 @@
     "dist/"
   ],
   "main": "index.js",
-  "types": "./dist/modules/jb-core/react/lib/index.d.ts",
+  "types": "./dist/web-component/jb-core/react/lib/index.d.ts",
   "repository": {
 		"type": "git",
 		"url": "git@github.com:javadbat/jb-core.git"

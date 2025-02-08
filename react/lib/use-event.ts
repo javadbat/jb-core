@@ -20,4 +20,3 @@ export function useEvent<TRef extends React.MutableRefObject<any|null>,TEvent>(r
     };
   },[ref,event,handler,passive]);
 }
-export const ss = "ss";

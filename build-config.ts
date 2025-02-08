@@ -14,5 +14,10 @@ export const reactComponentList: ReactComponentBuildConfig[] = [
     path: "./react/lib/index.ts",
     outputPath: "./react/dist/index.js",
     umdName: "JBCoreReact",
+    external:['react'],
+    dir:"./react",
+    globals:{
+      'react':"React"
+    }
   }
 ];

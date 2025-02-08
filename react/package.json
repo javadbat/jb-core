@@ -23,11 +23,9 @@
     "dist/"
   ],
   "main": "index.js",
-  "types": "./dist/web-component/jb-button/react/lib/JBButton.d.ts",
+  "types": "./dist/modules/jb-core/react/lib/index.d.ts",
   "repository": {
 		"type": "git",
 		"url": "git@github.com:javadbat/jb-core.git"
-  },
-  "dependencies": {
   }
 }

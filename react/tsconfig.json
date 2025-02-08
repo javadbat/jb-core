@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+    },
+    "include": [
+        "lib/**/*.ts",
+        "lib/**/*.tsx",
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "dist",
+    ],
+    "extends":"../../tsconfig-react.json"
+}

@@ -1,1 +1,1 @@
-export const UNDER_CONSTRUCTION = "";
+export {};

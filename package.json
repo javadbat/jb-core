@@ -25,7 +25,7 @@
     "react/dist/"
   ],
   "main": "index.js",
-  "types": "./dist/modules/jb-core/lib/index.d.ts",
+  "types": "./dist/web-component/jb-core/lib/index.d.ts",
   "repository": {
 		"type": "git",
 		"url": "git@github.com:javadbat/jb-core.git"

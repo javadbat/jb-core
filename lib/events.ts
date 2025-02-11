@@ -52,3 +52,21 @@ export function createInputEvent(eventName:string,e:InputEvent,initObj:InputEven
   const event = new InputEvent(eventName, initialObject);
   return event;
 }
+
+/**
+ * create a InputEvent based on `e` value and replace them with initObj
+ */
+export function createFocusEvent(eventName:string,e:FocusEvent,initObj:FocusEventInit){
+  const initialObject: FocusEventInit = {
+    bubbles:e.bubbles,
+    cancelable:e.cancelable,
+    composed:e.composed,
+    detail:e.detail,
+    view:e.view,
+    which:e.which,
+    relatedTarget:e.relatedTarget,
+    ...initObj   
+  };
+  const event = new FocusEvent(eventName, initialObject);
+  return event;
+}

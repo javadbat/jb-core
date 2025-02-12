@@ -10,12 +10,12 @@ export function useEvent<TRef extends React.MutableRefObject<any|null>,TEvent>(r
     const dom = ref.current;
     if (dom) {
       // initiate the event handler
-      dom.addEventListener(event, internalHandler, passive); 
+      dom.addEventListener(event, internalHandler, { passive, capture:false }); 
     }
     // this will clean up the event every time the component is re-rendered
     return function cleanup() {
       if(dom){
-        dom.removeEventListener(event, internalHandler, passive);
+        dom.removeEventListener(event, internalHandler, {passive, capture:false});
       }
     };
   },[ref,event,handler,passive]);

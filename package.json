@@ -10,10 +10,11 @@
     "jb",
     "jb-core",
     "web-component tools",
+    "event",
     "react component",
     "event"
   ],
-  "version": "0.0.4",
+  "version": "0.1.0",
   "bugs": "https://github.com/javadbat/jb-core/issues",
   "license": "MIT",
   "files": [

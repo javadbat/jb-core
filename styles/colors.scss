@@ -1,0 +1,14 @@
+root{
+  //recommended by teammate
+  --primary-c:blue,
+  --secondary-c:red,
+  --grey-c:#888,
+  // status
+  --error-c,
+  --success-c,
+  --warning-c,
+  --info-c
+  //and about shade
+  --primary-c-100:#44000000;
+  // we must have this color but use semantic color name in our code base
+}

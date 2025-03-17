@@ -11,10 +11,8 @@
         "allowJs": true,
         "target": "ES2020",
         "typeRoots" : ["../node_modules/@types", "./global.d.ts"],
-        "composite": true,
         "declaration": true,
-        "declarationDir": "./",
-        "declarationMap": false,
+        "declarationMap": true,
     },
     "include": [
         "global.d.ts",

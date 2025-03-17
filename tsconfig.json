@@ -1,13 +1,15 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
-        "rootDir": "./lib"
+        "rootDir": "./lib",
+        "declarationDir": "./dist",
     },
     "include": [
         "../global.d.ts",
         "lib/**/*.ts",
     ],
     "exclude": [
+        "stories",
         "node_modules",
         "**/*.spec.ts",
         "dist",

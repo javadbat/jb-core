@@ -33,7 +33,7 @@ export function defineColors() {
     name: "--jb-red",
     syntax: "<color>",
     inherits: true,
-    initialValue: "oklch(0.64 0.2485 23.21)",
+    initialValue: "oklch(0.6 0.22 23.21)",
   });
   setColorProperty({
     name: `--jb-neutral`,

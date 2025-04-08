@@ -12,4 +12,6 @@ root{
   //and about shade
   --primary-c-100:#44000000;
   // we must have this color but use semantic color name in our code base
+  // we must define contrast text color for success, error, primary, ... most of the are #fff by default but they can be changed in theme
+  --success-contrast-text:#fff;
 }

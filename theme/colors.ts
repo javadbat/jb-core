@@ -23,6 +23,32 @@ export function defineColors() {
     inherits: true,
     initialValue: "oklch(1 0 0)",
   });
+  setColorProperty({
+    name: "--jb-green",
+    syntax: "<color>",
+    inherits: true,
+    initialValue: "oklch(0.68 0.1484 162.1)",
+  });
+  setColorProperty({
+    name: "--jb-red",
+    syntax: "<color>",
+    inherits: true,
+    initialValue: "oklch(0.64 0.2485 23.21)",
+  });
+  setColorProperty({
+    name: `--jb-neutral`,
+    syntax: "<color>",
+    inherits: true,
+    initialValue: getNeutralColor(0),
+  });
+  for(let i=1;i<=10;i++){
+    setColorProperty({
+      name: `--jb-neutral-${i}`,
+      syntax: "<color>",
+      inherits: true,
+      initialValue: getNeutralColor(i),
+    });
+  }
 }
 function setColorProperty(value: PropertyDefinition) {
   try {

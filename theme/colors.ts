@@ -75,6 +75,12 @@ function defineTextColors() {
     inherits: true,
     initialValue: getNeutralColor(7),
   });
+  setCssProperty({
+    name: "--jb-text-contrast",
+    syntax: "<color>",
+    inherits: true,
+    initialValue: colors.single.white,
+  });
 }
 
 //

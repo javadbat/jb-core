@@ -4,8 +4,19 @@ export const colors = {
   single:{
     black:"oklch(0.14 0 0)",
     white:"oklch(1 0 0)",
+    highlight:"oklch(0.93 0.2302 125.18)"
+  },
+  primary:{
+    main:'oklch(0.6 0.26 256)',
+    hover:getHoverColor(0.6,0.26,256),
+    pressed:getPressedColor(0.6,0.26,256)
+  },
+  secondary:{
+    main:'oklch(0.6 0.26 286)',
+    hover:getHoverColor(0.6,0.26,286),
+    pressed:getPressedColor(0.6,0.26,286),
   }
-};
+} as const;
 export function defineColors() {
   defineColorCodes();
   defineTextColors();
@@ -15,7 +26,13 @@ function defineColorCodes(){
     name: "--jb-primary",
     syntax: "<color>",
     inherits: true,
-    initialValue: "oklch(0.6 0.26 256)",
+    initialValue: colors.primary.main,
+  });
+  setCssProperty({
+    name: "--jb-secondary",
+    syntax: "<color>",
+    inherits: true,
+    initialValue: colors.secondary.main,
   });
   setCssProperty({
     name: "--jb-neutral",
@@ -34,6 +51,12 @@ function defineColorCodes(){
     syntax: "<color>",
     inherits: true,
     initialValue: colors.single.white ,
+  });
+  setCssProperty({
+    name: "--jb-highlight",
+    syntax: "<color>",
+    inherits: true,
+    initialValue: colors.single.highlight ,
   });
   setCssProperty({
     name: "--jb-green",
@@ -86,4 +109,10 @@ function defineTextColors() {
 //
 export function getNeutralColor(index: number) {
   return `oklch(${(6 * (3+index*1.3))*0.01} ${(14+(index*0.09))*0.001} 258.36)`;
+}
+export function getHoverColor(lightness:number, chroma:number, hue:number){
+  return `oklch(${lightness + 0.07} ${chroma + 0.07} ${hue})`;
+}
+export function getPressedColor(lightness:number, chroma:number, hue:number){
+  return `oklch(${lightness - 0.1} ${chroma - 0.05} ${hue})`;
 }

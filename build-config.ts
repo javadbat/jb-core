@@ -6,6 +6,13 @@ export const webComponentList: WebComponentBuildConfig[] = [
     path: "./lib/index.ts",
     outputPath: "./dist/index.js",
     umdName: "JBCore",
+  },
+  {
+    name: "jb-core-theme",
+    path: "./theme/lib/index.ts",
+    outputPath: "./theme/dist/index.js",
+    umdName: "JBCoreTheme",
+    dir: "./theme",
   }
 ];
 export const reactComponentList: ReactComponentBuildConfig[] = [

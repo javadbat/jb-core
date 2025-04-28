@@ -6,13 +6,13 @@ import {getNeutralColor, defaultColors as colors} from 'jb-core/theme';
 <Subheading >all color are based on oklch() color space</Subheading>
 <br/>
 <ColorPalette>
-  <ColorItem title="single" description="" colors={{'black': colors.single.black,'white':colors.single.white}}/>
-  <ColorItem title="neutral" description="" colors={{'main':getNeutralColor(0),'d1':getNeutralColor(1),'d2':getNeutralColor(2),'d3':getNeutralColor(3),'d4':getNeutralColor(4),'d5':getNeutralColor(5),'d6':getNeutralColor(6),'d7':getNeutralColor(7),'d8':getNeutralColor(8),'d9':getNeutralColor(9),'d10':getNeutralColor(10)}}/>
-  <ColorItem title="primary" description="" colors={{'main':colors.primary.main,'lighter':colors.primary.lighter ,'hover':colors.primary.hover,'pressed':colors.primary.pressed}}/>
-  <ColorItem title="secondary" description="" colors={{'main':colors.secondary.main, 'lighter':colors.secondary.lighter,'hover':colors.secondary.hover,'pressed':colors.secondary.pressed}}/>
-  <ColorItem title="success" description="" colors={{'main':colors.green.main,'lighter':colors.green.lighter,'hover':colors.green.hover,'pressed':colors.green.pressed, 'subtle backgrounds':'oklch(0.87 0.116 171.77)', 'darker(text/icon)':'oklch(0.58 0.1227 163.94)', 'deep accents':'oklch(0.46 0.096255 165.0871)'}}/>
-  <ColorItem title="error" description="" colors={{'main':colors.red.main,"lighter":colors.red.lighter,'hover':colors.red.hover, 'pressed':colors.red.pressed, 'soft warnings':'#FF5C75', 'hover/backgrounds':'#FFA3B3','critical errors':'#D90026','dark mode':'#A3001D'}}/>
-  <ColorItem title="warning" description="" colors={{'main':colors.yellow.main, 'lighter':colors.yellow.lighter,'hover':colors.yellow.hover, 'pressed':colors.yellow.pressed}}/>
+  <ColorItem title="single" description="" colors={{'black': colors.single.black.value,'white':colors.single.white.value, 'highlight':colors.single.highlight.value}}/>
+  <ColorItem title="neutral" description="" colors={{'main':colors.neutral[0].value,'d1':colors.neutral[1].value,'d2':colors.neutral[2].value,'d3':colors.neutral[3].value,'d4':colors.neutral[4].value,'d5':colors.neutral[5].value,'d6':colors.neutral[6].value,'d7':colors.neutral[7].value,'d8':colors.neutral[8].value,'d9':colors.neutral[9].value,'d10':colors.neutral[10].value}}/>
+  <ColorItem title="primary" description="" colors={{'main':colors.primary.main.value,'lighter':colors.primary.light.value, dark:colors.primary.dark.value,'subtle':colors.primary.subtle.value, 'contrast':colors.primary.contrast.value ,'hover':colors.primary.hover.value,'pressed':colors.primary.pressed.value}}/>
+  <ColorItem title="secondary" description="" colors={{'main':colors.secondary.main.value, 'lighter':colors.secondary.light.value, dark:colors.secondary.dark.value,'subtle':colors.secondary.subtle.value, 'contrast':colors.secondary.contrast.value,'hover':colors.secondary.hover.value,'pressed':colors.secondary.pressed.value}}/>
+  <ColorItem title="success" description="" colors={{'main':colors.green.main.value,'lighter':colors.green.light.value, dark:colors.green.dark.value,'subtle':colors.green.subtle.value, 'contrast':colors.green.contrast.value,'hover':colors.green.hover.value,'pressed':colors.green.pressed.value}}/>
+  <ColorItem title="error" description="" colors={{'main':colors.red.main.value,"lighter":colors.red.light.value, dark:colors.red.dark.value,'subtle':colors.red.subtle.value, 'contrast':colors.red.contrast.value,'hover':colors.red.hover.value, 'pressed':colors.red.pressed.value}}/>
+  <ColorItem title="warning" description="" colors={{'main':colors.yellow.main.value, 'lighter':colors.yellow.light.value, dark:colors.yellow.dark.value,'subtle':colors.yellow.subtle.value, 'contrast':colors.yellow.contrast.value,'hover':colors.yellow.hover.value, 'pressed':colors.yellow.pressed.value}}/>
 </ColorPalette>
 
 <Subheading>Color Rules</Subheading>
@@ -35,6 +35,7 @@ you can define your own colors by using `jb-core/theme` functions.
   - `getHoverColor(l:number,c:number,h:number)` will give you a hover color based on the color you provide. it will return a color that is a little lighter and brighter than the original color.
   - `getPressedColor(l:number,c:number,h:number)` will give you a pressed color based on the color you provide. it will return a color that is a little darker and dimmer than the original color.
   - `getLighterColor(l:number,c:number,h:number)` will give you a lighter color based on the color you provide. it will return a color that is a little lighter than the original color.
+  - `getDarkerColor(l:number,c:number,h:number)` will give you a darker color based on the color you provide. it will return a color that is a little darker than the original color.
 </p>
 <br/>
 <p>

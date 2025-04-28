@@ -15,6 +15,60 @@ import {getNeutralColor, defaultColors as colors} from 'jb-core/theme';
   <ColorItem title="warning" description="" colors={{'main':colors.yellow.main.value, 'lighter':colors.yellow.light.value, dark:colors.yellow.dark.value,'subtle':colors.yellow.subtle.value, 'contrast':colors.yellow.contrast.value,'hover':colors.yellow.hover.value, 'pressed':colors.yellow.pressed.value}}/>
 </ColorPalette>
 
+
+<Subheading>Customize Component colors</Subheading>
+
+<p>in jb design system you have 3 way to change the components parts colors</p>
+- <p>1. **general approach:** set the color palette variables base on your app design.</p>
+- <p>2. **specific part approach:** set the color variables of specific part of the component.</p>
+- <p>3. **component approach:** set the color variables of specific component.</p>
+
+<p> for the first approach you can use the `--jb-*` variables of the color palette in your css. for example:</p>
+```css
+:root{
+  --jb-primary: oklch(0.6 0.26 256);
+  --jb-secondary: oklch(0.6 0.26 286);
+  --jb-green: oklch(0.6 0.26 120);
+  --jb-red: oklch(0.6 0.26 0);
+  --jb-yellow: oklch(0.6 0.26 60);
+}
+```
+<p>in this approach all components part that use primary color will use your primary color instead.</p>
+<p> remember you can set this variable in every scope in your app like in your app root or in your page root. this will allow you to have multiple palette ot theme in one app.</p>
+<p>for the second approach you can use the `--jb-component-name-*` variables</p>
+<p>in this case component will override it's default color value for that specific parts. for example jb-input dont have any border by default but you can set it like this</p>
+```css
+:root{
+  --jb-input-border-color: oklch(0.6 0.26 256);
+  /*or*/
+  --jb-input-border-color: var(--jb-primary);
+}
+```
+<p>this will set the border color of the jb-input component to your primary color.</p>
+<p>for the third approach you can use the `component-name` selector and set direct variable within</p>
+```css
+  jb-input{
+    --border-color: oklch(0.6 0.26 256);
+    /*or*/
+    --border-color: var(--jb-primary);
+  }
+```
+<p>this will be most useful when you want to set the variable or style in some specific state</p>
+<p>for example you can set the border color of the jb-input component to your primary color when it is focused.</p>
+```css
+  jb-input:focus{
+    --border-color: oklch(0.6 0.26 256);
+    /*or*/
+    --border-color: var(--jb-primary);
+  }
+  /*or show red border when input is in invalid state*/
+  jb-input:state(invalid){
+    --border-color: oklch(0.6 0.26 0);
+    /*or*/
+    --border-color: var(--jb-red);
+  }
+```
+
 <Subheading>Color Rules</Subheading>
 
 we use `oklch()` color space for all colors in our design system. This allows us to create a consistent and harmonious color palette that is easy to use and understand.

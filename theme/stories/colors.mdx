@@ -27,19 +27,29 @@ for pressed state we subtract `0.1` to lightness and `0.05` to chroma so it gets
 <Subheading>Define custom colors</Subheading>
 <br/>
 <p>
-you can define your own colors by using `jb-core/theme` functions.
+  we use `JBColor` type for all colors in our design system. This allows us to create a consistent and harmonious color palette that is easy to use and understand.
+  to creating your own custom color you must use `oklch()` color space for all colors in our design system. This allows us to create a consistent and harmonious color palette that is easy to use and understand.
+  for example primary color is `oklch(0.6 0.26 256)` which is a blue color with a lightness of 60%, chroma of 0.26, and hue of 256 degrees.
+</p>
+<p>
+after you define your color create a instance of `JBColor` class by providing the color you want to use. for example:
+  
+  ```ts
+  const primary = new JBColor({lightness:0.6,chroma:0.26,hue:256},'--jb-primary');
+  ```
+after you all your base colors you can create a color variants base on your base color. for example:
 </p>
 <p>
   there are several function that will give you the color you want:
   - `getNeutralColor(lightness:number)` will give you a neutral color based on the lightness value you provide. it will return a color that is in the range of 0 to 10.
-  - `getHoverColor(l:number,c:number,h:number)` will give you a hover color based on the color you provide. it will return a color that is a little lighter and brighter than the original color.
-  - `getPressedColor(l:number,c:number,h:number)` will give you a pressed color based on the color you provide. it will return a color that is a little darker and dimmer than the original color.
-  - `getLighterColor(l:number,c:number,h:number)` will give you a lighter color based on the color you provide. it will return a color that is a little lighter than the original color.
-  - `getDarkerColor(l:number,c:number,h:number)` will give you a darker color based on the color you provide. it will return a color that is a little darker than the original color.
-  - `getSubtleColor(l:number,c:number,h:number)` will give you a subtle color based on the color you provide. it will return a color that is a more like pastel color for quieter tone.
-  - `getContrastColor(l:number,c:number,h:number)` will give you a contrast color based on the color you provide. it will give you a most contrast color based on your background color in light mode it is Dark and in light mode its light.
+  - `getHoverColor(color:JBColor)` will give you a hover color based on the color you provide. it will return a color that is a little lighter and brighter than the original color.
+  - `getPressedColor(color:JBColor)` will give you a pressed color based on the color you provide. it will return a color that is a little darker and dimmer than the original color.
+  - `getLighterColor(color:JBColor)` will give you a lighter color based on the color you provide. it will return a color that is a little lighter than the original color.
+  - `getDarkerColor(color:JBColor)` will give you a darker color based on the color you provide. it will return a color that is a little darker than the original color.
+  - `getSubtleColor(color:JBColor)` will give you a subtle color based on the color you provide. it will return a color that is a more like pastel color for quieter tone.
+  - `getContrastColor(color:JBColor)` will give you a contrast color based on the color you provide. it will give you a most contrast color based on your background color in light mode it is Dark and in light mode its light.
 </p>
 <br/>
-<p>
+{/* <p>
   after you define your colors you can define them in your components by using the `jb-core/theme` `defineColors` function by providing `JBThemeColors` object.
-</p>
+</p> */}

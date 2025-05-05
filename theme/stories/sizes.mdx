@@ -1,0 +1,28 @@
+import {Meta, Heading, Subheading, } from '@storybook/blocks'
+import {defaultColors as colors} from 'jb-core/theme';
+
+<Meta title="Theme/Sizes" />
+<Heading>Sizes</Heading>
+<Subheading >standard size variables in jb design system</Subheading>
+<br/>
+## standards
+
+ we use `rem` unit as a sizing standard of our components so components and layout could effectively respond to user zoom and text size settings.
+
+### variable values units
+
+due to the CSS restriction for set rem values as a default value in `@property` we set default value in `px` and re-set the value in project document root in `rem`;
+
+### change the variables
+
+you can easily change every css variable value like any other css variable see [this](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties) to whatever value you want. 
+
+## border radius
+
+jb design system by default is a Modern and have a Round corner but you can change it base on your design language.
+
+- `--jb-radius`:1rem (16px) - default border radius used in inputs or buttons.
+- `--jb-radius-xs`:0.5rem (8px) - for extra small button or some small elements
+- `--jb-radius-sm`:0.75rem (12px) - for small  buttons
+- `--jb-radius-lg`:1.25rem (20px) - for big buttons
+- `--jb-radius-xl`:1.25rem (24px) - for extra large buttons and Box elements like modals content corner

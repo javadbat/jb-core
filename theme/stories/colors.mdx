@@ -104,6 +104,23 @@ after you all your base colors you can create a color variants base on your base
   - `getContrastColor(color:JBColor)` will give you a contrast color based on the color you provide. it will give you a most contrast color based on your background color in light mode it is Dark and in light mode its light.
 </p>
 <br/>
-{/* <p>
-  after you define your colors you can define them in your components by using the `jb-core/theme` `defineColors` function by providing `JBThemeColors` object.
-</p> */}
+
+## set color in javascript
+
+jb-design system use css variables for colors and you can set this css variables in your app whenever you want. but beside that we put some easier way to set these variables using `createThemeColor` and `setColors` functions.    
+
+```javascript
+// you just pass each color base oklch color parameters and createThemeColor will give you the whole color group (includes lighter, darker ,...)
+const colors = createThemeColor({
+  //all colors are optional just set the colors you want to change if you not set it will use the default color.
+  primary: {lightness:0.6,chroma:0.26,hue:256},
+  secondary: {lightness:0.6,chroma:0.26,hue:286},
+  yellow:{lightness:0.75,chroma:0.18,hue:70},
+  green:{lightness:0.68,chroma:0.1484,hue:162.1},
+  red:{lightness:0.6,chroma:0.22,hue:23.21}
+}); 
+// set the generated color in project root
+setColors(colors);
+```
+base on above example you can modify the `colors` variable base on your need after creation and then pass them to `setColors` to actually setting it into your app.    
+this method currently only support `JBColorGroup` color types. for single or neutral colors just use css variables.

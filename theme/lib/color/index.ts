@@ -1,99 +1,48 @@
 import { defaultColors } from "./constants";
-import { registerCssProperty } from "../utils";
+import { defineColorCodes, defineTextColors } from "./define-colors";
+import { JBColor } from "./jb-color";
+import type { ColorGroupsKey, JBColorGroup, JBThemeColors, OklchParams } from "./types";
+import { createColorGroup } from "./utils";
+export * from './utils';
 
-export type JBThemeColors = typeof defaultColors;
-export {defaultColors};
+
+export { defaultColors };
+
 export function defineColors() {
   defineColorCodes(defaultColors);
   defineTextColors(defaultColors);
 }
-function defineColorCodes(colors:JBThemeColors){
-  registerCssProperty({
-    name: colors.primary.main.variableName,
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.primary.main.value,
-  });
-  registerCssProperty({
-    name: colors.secondary.main.variableName,
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.secondary.main.value,
-  });
-  registerCssProperty({
-    name: "--jb-neutral",
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.neutral[0].value,
-  });
-  registerCssProperty({
-    name: colors.single.black.variableName,
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.single.black.value,
-  });
-  registerCssProperty({
-    name: colors.single.white.variableName,
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.single.white.value,
-  });
-  registerCssProperty({
-    name: colors.single.highlight.variableName,
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.single.highlight.value,
-  });
-  registerCssProperty({
-    name: colors.yellow.main.variableName,
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.yellow.main.value,
-  });
-  registerCssProperty({
-    name: colors.green.main.variableName,
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.green.main.value,
-  });
-  registerCssProperty({
-    name: colors.red.main.variableName,
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.red.main.value,
-  });
-  registerCssProperty({
-    name: `--jb-neutral`,
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.neutral[0].value,
-  });
-  for(let i=1;i<=10;i++){
-    registerCssProperty({
-      name: colors.neutral[i].variableName,
-      syntax: "<color>",
-      inherits: true,
-      initialValue: colors.neutral[i].value,
-    });
+
+
+export type SetThemeColorParameter = {[key in ColorGroupsKey]?:JBColorGroup}
+export function setColors(colors: SetThemeColorParameter) {
+  function setColor(color: JBColor) {
+    document.documentElement.style.setProperty(color.variableName, color.value);
   }
+  function setColorGroup(group:JBColorGroup){
+    setColor(group.main);
+    setColor(group.light);
+    setColor(group.dark);
+    setColor(group.contrast);
+    setColor(group.subtle);
+    setColor(group.hover);
+    setColor(group.pressed);
+  }
+  colors.primary && setColorGroup(colors.primary);
+  colors.secondary && setColorGroup(colors.secondary);
+  colors.green && setColorGroup(colors.green);
+  colors.red && setColorGroup(colors.red);
+  colors.yellow && setColorGroup(colors.yellow);
 }
-function defineTextColors(colors:JBThemeColors) {
-  registerCssProperty({
-    name: "--jb-text-primary",
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.single.black.value,
+
+export type CreateThemeColorParameter = {[key in ColorGroupsKey]?:OklchParams}
+
+export function createThemeColor(parameter: CreateThemeColorParameter): Partial<JBThemeColors> {
+  const themeColors: Partial<JBThemeColors> = {};
+  Object.keys(parameter).forEach((key: keyof CreateThemeColorParameter) => {
+    const baseColor = new JBColor(parameter[key], `---jb-${key}`);
+    const colorGroup = createColorGroup(baseColor);
+    themeColors[key] = colorGroup;
   });
-  registerCssProperty({
-    name: "--jb-text-secondary",
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.neutral[7].value,
-  });
-  registerCssProperty({
-    name: "--jb-text-contrast",
-    syntax: "<color>",
-    inherits: true,
-    initialValue: colors.single.white.value,
-  });
+  return themeColors;
 }

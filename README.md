@@ -39,3 +39,18 @@ useEvent(ref,'event',props.onEvent);
 //for example
 useEvent(ref,'change',props.onChange);
 ```
+
+### useInstance
+
+create a instance of an class inside a react component.
+
+```js
+useInstance(YourClass,[arg1,arg2]);
+//for 
+class YourClass{
+  constructor(arg1,arg2){
+
+  }
+}
+
+```

@@ -12,9 +12,10 @@
     "web-component tools",
     "event",
     "react component",
+    "theme",
     "event"
   ],
-  "version": "0.14.1",
+  "version": "0.15.0",
   "bugs": "https://github.com/javadbat/jb-core/issues",
   "license": "MIT",
   "files": [

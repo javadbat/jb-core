@@ -1,3 +1,5 @@
+import type { OklchParams } from "./types";
+
 export class JBColor {
   lightness:number;
   chroma:number;
@@ -6,7 +8,7 @@ export class JBColor {
   get value(){
     return `oklch(${this.lightness} ${this.chroma} ${this.hue})`;
   }
-  constructor(colorParams:{lightness: number, chroma: number, hue: number}, variableName?:`--${string}`) {
+  constructor(colorParams:OklchParams, variableName?:`--${string}`) {
     this.variableName = variableName;
     this.lightness = colorParams.lightness;
     this.chroma = colorParams.chroma;

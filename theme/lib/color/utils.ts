@@ -1,4 +1,5 @@
 import { JBColor } from "./jb-color";
+import type { JBColorGroup } from "./types";
 
 //TODO: add DarkMode and LightMode to all the utils functions.
 
@@ -62,7 +63,7 @@ export function getContrastColor(color: JBColor) {
   // Calculate new values
   const newLightness = Math.max(color.lightness - LIGHTNESS_DEPTH, MIN_LIGHTNESS);
   const newChroma = Math.min(color.chroma * CHROMA_BOOST, MAX_CHROMA);
-  
+
   // Maintain original hue for color harmony
   return new JBColor(
     {
@@ -72,4 +73,16 @@ export function getContrastColor(color: JBColor) {
     },
     `${color.variableName}-contrast`
   );
+}
+
+export function createColorGroup(color: JBColor): JBColorGroup {
+  return {
+    main: color,
+    hover: getHoverColor(color),
+    pressed: getPressedColor(color),
+    light: getLighterColor(color),
+    dark: getDarkerColor(color),
+    subtle: getSubtleColor(color),
+    contrast: getContrastColor(color)
+  }
 }

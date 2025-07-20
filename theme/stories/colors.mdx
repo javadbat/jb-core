@@ -74,8 +74,9 @@ import {defaultColors as colors} from 'jb-core/theme';
 we use `oklch()` color space for all colors in our design system. This allows us to create a consistent and harmonious color palette that is easy to use and understand.
 <p>
 for example primary color is `oklch(0.6 0.26 256)` which is a blue color with a lightness of 60%, chroma of 0.26, and hue of 256 degrees.
-for hover state we add `0.07` to lightness and `0.07` to chroma so it gets a little lighter and brighter.
-for pressed state we subtract `0.1` to lightness and `0.05` to chroma so it gets a little darker and dimmer.
+- for hover state we add `0.07` to lightness and `0.07` to chroma so it gets a little lighter and brighter.
+- for pressed state we subtract `0.1` to lightness and `0.05` to chroma so it gets a little darker and dimmer.
+- for disabled state we use `hsl(from var(--non-disable-color) h 12% 66.1)` css value to make it dim and neutral.
 </p>
 <br/>
 <Subheading>Define custom colors</Subheading>

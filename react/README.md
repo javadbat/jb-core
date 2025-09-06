@@ -16,13 +16,28 @@ useEvent(ref,'change',props.onChange);
 
 create a instance of an class inside a react component.
 
-```js
-useInstance(YourClass,[arg1,arg2]);
-//for 
-class YourClass{
-  constructor(arg1,arg2){
+```jsx
+import {useInstance} from 'jb-core/react';
 
+//create your class in js 
+class YourClass{
+  prop1 = null;
+  prop2 = null;
+  constructor(arg1,arg2){
+    this.prop1 = arg1;
+    this.prop2 = arg2;
   }
 }
+
+//use your class in react component
+
+function YourComponent(){
+  //pass args as array in second parameter
+  const instance = useInstance(YourClass,[arg1,arg2]);
+
+  return <div>{instance.prop1}</div>
+
+}
+
 
 ```

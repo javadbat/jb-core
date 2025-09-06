@@ -2,9 +2,12 @@
 
 core modules of jb-design system mostly contain functions that help you manage your web-components & tools to connect them to ReactJS components.
 
-## js modules
 
-### listenAndSilentEvent
+## React Modules
+
+to see react modules please see [`jb-core/react`](https://github.com/javadbat/jb-core/tree/main/react)
+
+## listenAndSilentEvent
 
 this function listen to event in the capture phase and stop it's propagation and call your handler so you will be the only one who capture this event used for event forwarding (transformation) in web-components.
 
@@ -13,7 +16,7 @@ this function listen to event in the capture phase and stop it's propagation and
   listenAndSilentEvent(inputDom, 'keyup', yourOnKeyUpHandler,{passive:true});
 ```
 
-### create events
+## create events
 
 these functions will create events base on existing event objects used mostly for event forwarding.
 

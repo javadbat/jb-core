@@ -5,6 +5,10 @@ declare module '*.scss' {
     const value: FileStringModules;
     export default value;
 }
+declare module '*.css' {
+    const value: FileStringModules;
+    export default value;
+}
 declare module '*.html' {
     const value: FileStringModules;
     export default value.default;

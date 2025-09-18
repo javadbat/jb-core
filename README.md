@@ -28,3 +28,18 @@ these functions will create events base on existing event objects used mostly fo
     
 ```
 we also have `createKeyboardEvent`, `createInputEvent`, `createFocusEvent`.
+
+## Inject Style
+
+when you have your styles in a string and you want to inject it in document or shadowroot you can use this function.
+
+```ts
+import CSS from './style.css';
+import {injectCss} from 'jb-core';
+
+injectCss(CSS);
+// same as
+injectCss(CSS, document);
+// in web-components when you want inject your style inside shadow DOM
+injectCss(CSS, this.shadowRoot);
+```

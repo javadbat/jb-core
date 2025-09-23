@@ -2,6 +2,7 @@
 
 ## config file
 JB Design System use html tag `lang` attribute to set the default language of it's components.
+
 ```html
 <html lang="fa">
   <!-- or -->
@@ -9,13 +10,46 @@ JB Design System use html tag `lang` attribute to set the default language of it
 ```
 
 if you want to set your locale manually in javascript you just have to import `i18n` and set your default locale:
+
 ```ts
 import {i18n} from 'jb-core/i18n';
 // see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale for more setting detail
 i18n.setLocale(new Intl.Locale("fa"))
 ```
 
-## internal methods
+## Dictionary
+
+Dictionary is where we keep our messages and texts string for different languages
+
+```ts
+import {JBDictionary} from 'jb-core/i18n';
+
+export const dictionary = new JBDictionary({
+  "fa":{
+    yourKey:"مقدار شما"
+  },
+  "en":{
+    yourKey:"your value"
+  }
+});
+```
+### Add new language
+
+you can add or replace currently exists language by using `setLanguage` method.
+
+```ts
+dictionary.setLanguage("jp",{yourKey:"あなたの鍵"})
+```
+
+### getValue
+
+```ts
+import {i18n} from "jb-core/i18n";
+
+dictionary.get(i18n,"yourKey")
+```
+
+## Internal Methods
 
 this methods are internal methods and intended to be used inside jb design system modules but you can also use them if you are creating modules
 

@@ -7,6 +7,10 @@ core modules of jb-design system mostly contain functions that help you manage y
 
 to see react modules please see [`jb-core/react`](https://github.com/javadbat/jb-core/tree/main/react)
 
+## I18N modules
+
+to see i18n modules please see [`jb-core/i18n`](https://github.com/javadbat/jb-core/tree/main/i18n)
+
 ## listenAndSilentEvent
 
 this function listen to event in the capture phase and stop it's propagation and call your handler so you will be the only one who capture this event used for event forwarding (transformation) in web-components.

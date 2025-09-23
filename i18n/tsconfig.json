@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "rootDir": "./lib",
+        "declarationDir": "./dist",
+    },
+    "include": [
+        "lib/**/*.ts",
+    ],
+    "exclude": [
+        "stories",
+        "node_modules",
+        "**/*.spec.ts",
+        "dist",
+    ],
+    "extends":"../configs/tsconfig-web-component.json"
+}

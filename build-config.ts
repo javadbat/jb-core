@@ -13,6 +13,13 @@ export const webComponentList: WebComponentBuildConfig[] = [
     outputPath: "./theme/dist/index.js",
     umdName: "JBCoreTheme",
     dir: "./theme",
+  },
+  {
+    name: "jb-core-i18n",
+    path: "./i18n/lib/index.ts",
+    outputPath: "./i18n/dist/index.js",
+    umdName: "JBCoreI18N",
+    dir: "./i18n",
   }
 ];
 export const reactComponentList: ReactComponentBuildConfig[] = [

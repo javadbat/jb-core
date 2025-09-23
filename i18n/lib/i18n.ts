@@ -10,7 +10,8 @@ export class JBI18N {
       case "fa":
         this.locale = new Intl.Locale("fa", {
           calendar: "persian",
-          region: "US",
+          numeric:false,
+          region: "IR",
         })
         break;
       case "en":

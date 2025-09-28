@@ -29,7 +29,7 @@ export class JBDictionary<T extends object> {
    * @param key key of dictionary object
    * @returns value of the dictionary with "en" fallback
    */
-  get(i18n:JBI18N,key:keyof T){
+  get<K extends keyof T>(i18n:JBI18N,key:K):T[K]{
     const obj = this.dictionary[i18n.locale.language]?this.dictionary[i18n.locale.language]:this.dictionary["en"];
     return obj[key]?obj[key]:this.dictionary["en"][key];
   }

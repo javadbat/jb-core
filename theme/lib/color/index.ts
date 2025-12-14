@@ -4,6 +4,8 @@ import { JBColor } from "./jb-color";
 import type { ColorGroupsKey, JBColorGroup, JBThemeColors, OklchParams } from "./types";
 import { createColorGroup } from "./utils";
 export * from './utils';
+export * from "./jb-color";
+export * from "./types";
 
 
 export { defaultColors };

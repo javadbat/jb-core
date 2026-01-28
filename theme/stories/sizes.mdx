@@ -5,6 +5,14 @@ import {defaultColors as colors} from 'jb-core/theme';
 <Heading>Sizes</Heading>
 <Subheading >standard size variables in jb design system</Subheading>
 <br/>
+## Usage
+All JBDesign System Component initial their needed variables themselves and you don't need any initialization to use our components. **But** if ypu need to initialize size variables for your own usage in your app you can do followings:
+
+```javascript
+import {defineSizes} from 'jb-core/theme';
+// it will define all size related css variables in @property and :root you can also customize them in your css
+defineSizes();
+```
 ## standards
 
  we use `rem` unit as a sizing standard of our components so components and layout could effectively respond to user zoom and text size settings.

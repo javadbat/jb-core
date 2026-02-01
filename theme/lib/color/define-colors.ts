@@ -26,6 +26,7 @@ export function defineColorCodes(colors:JBThemeColors){
   defineColorGroup(colors.red);
   defineColorGroup(colors.red);
   defineColorGroup(colors.green);
+  defineColorGroup(colors.yellow);
   defineColor(colors.single.black);
   defineColor(colors.single.white);
   defineColor(colors.single.highlight);

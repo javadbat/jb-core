@@ -1,5 +1,9 @@
 # jb-core
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-core/main/LICENSE)
+[![NPM Version](https://img.shields.io/npm/v/jb-core)](https://www.npmjs.com/package/jb-core)
+![GitHub Created At](https://img.shields.io/github/created-at/javadbat/jb-core)
+
 core modules of jb-design system mostly contain functions that help you manage your web-components & tools to connect them to ReactJS components.
 
 
@@ -29,7 +33,14 @@ these functions will create events base on existing event objects used mostly fo
     const event = createInputEvent('input', e, { cancelable: false });
     this.dispatchEvent(event);
   }
-    
+    #onInputKeyup(e:KeyboardEvent){
+    const event = createKeyboardEvent('keyup', e, { cancelable: false });
+    this.dispatchEvent(event);
+  }
+    #onButtonClick(e:MouseEvent){
+    const event = createMouseEvent('click', e, { cancelable: false });
+    this.dispatchEvent(event);
+  }
 ```
 we also have `createKeyboardEvent`, `createInputEvent`, `createFocusEvent`.
 

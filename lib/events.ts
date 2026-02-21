@@ -64,6 +64,42 @@ export function createInputEvent(eventName: string, e: InputEvent, initObj: Inpu
   const event = new InputEvent(eventName, initialObject);
   return event;
 }
+export function createMouseEvent(eventName: string, e: MouseEvent, initObj: MouseEventInit) {
+  const initialObject: MouseEventInit = {
+    bubbles: e.bubbles,
+    cancelable: e.cancelable,
+    composed: e.composed,
+    detail: e.detail,
+    view: e.view,
+    which: e.which,
+    altKey:e.altKey,
+    button:e.button,
+    buttons:e.buttons,
+    clientX:e.clientX,  
+    clientY:e.clientY,
+    ctrlKey:e.ctrlKey,
+    metaKey:e.metaKey,
+    shiftKey:e.shiftKey,
+    movementX:e.movementX,
+    movementY:e.movementY,
+    screenX:e.screenX,
+    screenY:e.screenY,
+    relatedTarget:e.relatedTarget,
+    modifierAltGraph:e.getModifierState("AltGraph"),
+    modifierCapsLock:e.getModifierState("CapsLock"),
+    modifierFn:e.getModifierState("Fn"),
+    modifierFnLock:e.getModifierState("FnLock"),
+    modifierHyper:e.getModifierState("Hyper"),
+    modifierNumLock:e.getModifierState("NumLock"),
+    modifierScrollLock:e.getModifierState("ScrollLock"),
+    modifierSuper:e.getModifierState("Super"),
+    modifierSymbol:e.getModifierState("Symbol"),
+    modifierSymbolLock:e.getModifierState("SymbolLock"),
+    ...initObj
+  };
+  const event = new MouseEvent(eventName, initialObject);
+  return event;
+}
 
 /**
  * create a InputEvent based on `e` value and replace them with initObj

@@ -38,6 +38,4 @@ function YourComponent(){
   return <div>{instance.prop1}</div>
 
 }
-
-
 ```

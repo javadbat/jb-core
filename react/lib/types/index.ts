@@ -1,5 +1,5 @@
 import type { DetailedHTMLProps } from "react";
 
-type ReactElementStandardProps = DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+type ReactElementStandardProps<TElement=HTMLElement> = DetailedHTMLProps<React.HTMLAttributes<TElement>, TElement>;
 // Mandatory props that every JB Design System web component react wrapper should support
-export type JBElementStandardProps = Omit<ReactElementStandardProps, 'ref' | 'key'>
+export type JBElementStandardProps<TElement=HTMLElement, TOmit extends string = never> = Omit<ReactElementStandardProps<TElement>, 'ref' | 'key' | TOmit>

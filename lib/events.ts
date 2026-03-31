@@ -58,7 +58,7 @@ export function createInputEvent(eventName: string, e: InputEvent, initObj: Inpu
     data: e.data,
     dataTransfer: e.dataTransfer,
     inputType: e.inputType,
-    targetRanges: typeof e.getTargetRanges() == "function" ? e.getTargetRanges() : [],
+    targetRanges: typeof e.getTargetRanges == "function" ? e.getTargetRanges() : [],
     ...initObj
   };
   const event = new InputEvent(eventName, initialObject);

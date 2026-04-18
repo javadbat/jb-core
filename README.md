@@ -58,3 +58,10 @@ injectCss(CSS, document);
 // in web-components when you want inject your style inside shadow DOM
 injectCss(CSS, this.shadowRoot);
 ```
+## create unique id
+```ts
+import {uniqueId} from 'jb-core'
+// will generate unique uuid for you with given prefix
+const id = uniqueId('prefix');
+document.querySelector('jb-button').setAttribute('id',id)
+```

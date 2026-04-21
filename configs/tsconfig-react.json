@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "module": "ESNext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "removeComments": false,
         "preserveConstEnums": true,
         "sourceMap": true,
@@ -12,7 +12,6 @@
         "experimentalDecorators": true,
         "noImplicitAny": false,
         "noLib": false,
-        "esModuleInterop": false,
         "declaration": true,
         "declarationDir": "./",
         "declarationMap": false,

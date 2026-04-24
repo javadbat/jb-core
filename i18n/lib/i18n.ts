@@ -6,7 +6,7 @@ type I18nEventListeners = {
   localeChange:VoidFunction[]
 }
 export class JBI18N {
-  locale: Intl.Locale
+  locale!: Intl.Locale
   #listeners:I18nEventListeners = {
     localeChange:[]
   }
@@ -52,7 +52,7 @@ export class JBI18N {
     this.#listeners[key].push(callback)
   }
   callListeners(key:keyof I18nEventListeners){
-    this.#listeners[key].forEach(x=>x());
+    this.#listeners[key].forEach(x=>{x()});
   }
 }
 

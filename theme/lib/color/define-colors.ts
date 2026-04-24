@@ -1,10 +1,11 @@
 import { registerCssProperty } from "../utils";
 import type { JBColor } from "./jb-color";
+import { uniqueId } from "jb-core";
 import type { JBColorGroup, JBThemeColors } from "./types";
 
 function defineColor(color:JBColor , name?:string){
 registerCssProperty({
-    name: name??color.variableName,
+    name: name??color.variableName??`--${uniqueId()}`,
     syntax: "<color>",
     inherits: true,
     initialValue: color.value,

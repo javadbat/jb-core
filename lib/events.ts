@@ -8,11 +8,11 @@ export type EventTypeWithTarget<TEvent, TTarget> = TEvent & {
  * this function will stop event from propagate even in capturing phase and will call handler only if event target is the element
  */
 export function listenAndSilentEvent<TEvent extends Event, TTarget>(element: TTarget, eventName: string, handler: (e:TEvent) => void, options: AddEventListenerOptions = {}) {
-  document.addEventListener(eventName, (e: TEvent) => {
+  document.addEventListener(eventName as keyof  DocumentEventMap, (e: Event) => {
     if (e.composedPath().includes(element as unknown as EventTarget)) {
       e.stopPropagation();
       e.stopImmediatePropagation();
-      handler(e);
+      handler(e as TEvent);
     }
   },{capture:true,...options});
 }

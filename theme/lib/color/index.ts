@@ -19,7 +19,7 @@ export function defineColors() {
 export type SetThemeColorParameter = {[key in ColorGroupsKey]?:JBColorGroup}
 export function setColors(colors: SetThemeColorParameter) {
   function setColor(color: JBColor) {
-    document.documentElement.style.setProperty(color.variableName, color.value);
+    document.documentElement.style.setProperty(color.variableName as string, color.value);
   }
   function setColorGroup(group:JBColorGroup){
     setColor(group.main);
@@ -41,10 +41,10 @@ export type CreateThemeColorParameter = {[key in ColorGroupsKey]?:OklchParams}
 
 export function createThemeColor(parameter: CreateThemeColorParameter): Partial<JBThemeColors> {
   const themeColors: Partial<JBThemeColors> = {};
-  Object.keys(parameter).forEach((key: keyof CreateThemeColorParameter) => {
-    const baseColor = new JBColor(parameter[key], `---jb-${key}`);
+  Object.keys(parameter).forEach((key: string) => {
+    const baseColor = new JBColor(parameter[key as ColorGroupsKey]!, `---jb-${key}`);
     const colorGroup = createColorGroup(baseColor);
-    themeColors[key] = colorGroup;
+    themeColors[key as ColorGroupsKey] = colorGroup;
   });
   return themeColors;
 }

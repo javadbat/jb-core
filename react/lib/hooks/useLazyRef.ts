@@ -1,8 +1,8 @@
-import { MutableRefObject, useRef } from "react";
+import { useRef, type RefObject } from "react";
 
 type InitFunc<T> = ()=>T
 export const useLazyRef = <T>(initValFunc:InitFunc<T>) => {
-  const ref:MutableRefObject<any> = useRef(null);
+  const ref:RefObject<T|null> = useRef(null);
   if (ref.current === null) {
     ref.current = initValFunc();
   }

@@ -3,9 +3,9 @@
   "description": "jb design system core modules",
   "type": "module",
   "author": {
-		"name": "mohammad javad bathaei",
-		"email": "javadbat@gmail.com"
-	},
+    "name": "mohammad javad bathaei",
+    "email": "javadbat@gmail.com"
+  },
   "keywords": [
     "jb",
     "jb-core",
@@ -15,7 +15,7 @@
     "theme",
     "event"
   ],
-  "version": "0.27.0",
+  "version": "0.27.2",
   "bugs": "https://github.com/javadbat/jb-core/issues",
   "license": "MIT",
   "files": [
@@ -34,9 +34,8 @@
   "module": "index.js",
   "types": "./dist/index.d.ts",
   "repository": {
-		"type": "git",
-		"url": "git@github.com:javadbat/jb-core.git"
+    "type": "git",
+    "url": "git@github.com:javadbat/jb-core.git"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

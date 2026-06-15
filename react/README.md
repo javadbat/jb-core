@@ -44,3 +44,7 @@ function YourComponent(){
 
 }
 ```
+
+## Shared Documentation
+
+For web-component behavior, events, slots, and CSS variables, see [`jb-core`](https://github.com/javadbat/jb-core).

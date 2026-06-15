@@ -27,7 +27,7 @@ this function listen to event in the capture phase and stop it's propagation and
 
 ## create events
 
-these functions will create events base on existing event objects used mostly for event forwarding.
+these functions will create events based on existing event objects used mostly for event forwarding.
 
 ```ts
   #onInputInput(e:InputEvent){

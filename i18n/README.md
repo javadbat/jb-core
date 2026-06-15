@@ -59,7 +59,7 @@ dictionary.get(i18n,"yourKey")
 this methods are internal methods and intended to be used inside jb design system modules but you can also use them if you are creating modules
 
 ### getRequiredMessage
-used to get error message of required filed base on their label
+used to get error message of required filed based on their label
 
 ```ts
 getRequiredMessage(context:JBI18N,label?:string)

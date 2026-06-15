@@ -1,5 +1,10 @@
 # JB I18N Module
 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-core)
+[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-core/main/LICENSE)
+[![NPM Version](https://img.shields.io/npm/v/jb-core-i18n)](https://www.npmjs.com/package/jb-core-i18n)
+![GitHub Created At](https://img.shields.io/github/created-at/javadbat/jb-core)
+
 ## config file
 JB Design System use html tag `lang` attribute to set the default language of it's components.
 

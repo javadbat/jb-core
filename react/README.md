@@ -1,5 +1,10 @@
 # jb-core react modules
 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-core)
+[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-core/main/LICENSE)
+[![NPM Version](https://img.shields.io/npm/v/jb-core-react)](https://www.npmjs.com/package/jb-core-react)
+![GitHub Created At](https://img.shields.io/github/created-at/javadbat/jb-core)
+
 ## useEvent
 
 used to bind web-component events to react component event prop

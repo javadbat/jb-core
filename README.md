@@ -10,7 +10,7 @@ core modules of jb-design system mostly contain functions that help you manage y
 
 ## React Modules
 
-to see react modules please see [`jb-core/react`](https://github.com/javadbat/jb-core/tree/main/react)
+- [<img src="https://img.shields.io/badge/React.js-jb--core%2Freact-000.svg?logo=react&logoColor=%2361DAFB" height="30" />](https://github.com/javadbat/jb-core/tree/main/react)
 
 ## I18N modules
 

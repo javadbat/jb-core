@@ -16,11 +16,8 @@
         "declarationDir": "./",
         "declarationMap": false,
         "jsx": "react",
-        "typeRoots" : ["../node_modules/@types", "./global.d.ts"],
+        "types": ["jb-core/configs/global"],
     },
-    "include": [
-        "global.d.ts",
-    ],
     "exclude": [
         "node_modules",
         "**/*.spec.ts",

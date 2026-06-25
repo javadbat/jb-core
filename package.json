@@ -23,7 +23,6 @@
     "README.md",
     "lib/",
     "dist/",
-    "styles/",
     "configs/",
     "theme/",
     "i18n/",
@@ -33,6 +32,30 @@
   "main": "index.js",
   "module": "index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./index.js"
+    },
+    "./react": {
+      "types": "./react/dist/index.d.ts",
+      "default": "./react/index.js"
+    },
+    "./i18n": {
+      "types": "./i18n/dist/index.d.ts",
+      "default": "./i18n/dist/index.js"
+    },
+    "./theme": {
+      "types": "./theme/dist/index.d.ts",
+      "default": "./theme/dist/index.js"
+    },
+    "./configs/global": {
+      "types": "./configs/global.d.ts",
+      "default": "./configs/global.d.ts"
+    },
+    "./configs/*": "./configs/*",
+    "./*": "./*"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:javadbat/jb-core.git"

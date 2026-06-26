@@ -15,7 +15,7 @@
     "theme",
     "event"
   ],
-  "version": "0.28.0",
+  "version": "0.29.0",
   "bugs": "https://github.com/javadbat/jb-core/issues",
   "license": "MIT",
   "files": [

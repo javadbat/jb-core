@@ -9,6 +9,10 @@ declare module '*.css' {
     const value: FileStringModules;
     export default value;
 }
+declare module '*.css?inline' {
+    const value: string;
+    export default value;
+}
 declare module '*.html' {
     const value: FileStringModules;
     export default value.default;

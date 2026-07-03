@@ -9,35 +9,35 @@ function defineRadiusVariables(){
     name:'--jb-radius',
     inherits:true,
     value:'1rem',
-    initialValue:'16px',
+    initialValue:'1rem',
     syntax:'<length-percentage>',
   });
   registerCssProperty({
     name:'--jb-radius-xs',
     inherits:true,
     value:`0.5rem`,
-    initialValue:'8px',
+    initialValue:'0.5rem',
     syntax:'<length-percentage>'
   });
   registerCssProperty({
     name:'--jb-radius-sm',
     inherits:true,
     value:`0.75rem`,
-    initialValue:'12px',
+    initialValue:'0.75rem',
     syntax:'<length-percentage>'
   });
   registerCssProperty({
     name:'--jb-radius-lg',
     inherits:true,
     value:`1.25rem`,
-    initialValue:'20px',
+    initialValue:'1.25rem',
     syntax:'<length-percentage>'
   });
   registerCssProperty({
     name:'--jb-radius-xl',
     inherits:true,
     value:`1.5rem`,
-    initialValue:'24px',
+    initialValue:'1.5rem',
     syntax:'<length-percentage>'
   });
 }

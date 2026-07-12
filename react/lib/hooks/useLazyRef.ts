@@ -8,5 +8,3 @@ export const useLazyRef = <T>(initValFunc:InitFunc<T>) => {
   }
   return ref;
 };
-
-// used by: useMobx

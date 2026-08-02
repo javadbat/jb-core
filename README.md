@@ -12,13 +12,15 @@ core modules of jb-design system mostly contain functions that help you manage y
 
 - [<img src="https://img.shields.io/badge/React.js-jb--core%2Freact-000.svg?logo=react&logoColor=%2361DAFB" height="30" />](https://github.com/javadbat/jb-core/tree/main/react)
 
+See the [React module documentation](https://javadbat.github.io/design-system/?path=/story/components-jbcore-react-readme--docs) and [interactive React demos](https://javadbat.github.io/design-system/?path=/story/components-jbcore-react--use-event).
+
 ## I18N modules
 
-to see i18n modules please see [`jb-core/i18n`](https://github.com/javadbat/jb-core/tree/main/i18n)
+to see i18n modules please see [`jb-core/i18n`](https://github.com/javadbat/jb-core/tree/main/i18n) and its [Storybook documentation](https://javadbat.github.io/design-system/?path=/story/components-jbcore-i18n-readme--docs).
 
 ## listenAndSilentEvent
 
-this function listen to event in the capture phase and stop it's propagation and call your handler so you will be the only one who capture this event used for event forwarding (transformation) in web-components.
+this function listen to event in the capture phase and stop it's propagation and call your handler so you will be the only one who capture this event used for event forwarding (transformation) in web-components. See the [event interception demo](https://javadbat.github.io/design-system/?path=/story/components-jbcore--listen-and-silent-event).
 
 ```js
   listenAndSilentEvent(inputDom, 'keyup', yourOnKeyUpHandler);
@@ -43,11 +45,11 @@ these functions will create events based on existing event objects used mostly f
     this.dispatchEvent(event);
   }
 ```
-we also have `createKeyboardEvent`, `createInputEvent`, `createFocusEvent`.
+we also have `createKeyboardEvent`, `createInputEvent`, `createFocusEvent`; try the [event creation demo](https://javadbat.github.io/design-system/?path=/story/components-jbcore--create-events).
 
 ## Inject Style
 
-when you have your styles in a string and you want to inject it in document or shadowroot you can use this function.
+when you have your styles in a string and you want to inject it in document or shadowroot you can use this function. The [style injection demo](https://javadbat.github.io/design-system/?path=/story/components-jbcore--inject-style) shows the resulting stylesheet.
 
 ```ts
 import CSS from './style.css';
@@ -66,3 +68,4 @@ import {uniqueId} from 'jb-core'
 const id = uniqueId('prefix');
 document.querySelector('jb-button').setAttribute('id',id)
 ```
+Generate prefixed identifiers in the [unique ID demo](https://javadbat.github.io/design-system/?path=/story/components-jbcore--unique-id).

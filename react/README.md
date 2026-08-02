@@ -7,7 +7,7 @@
 
 ## useEvent
 
-used to bind web-component events to react component event prop
+used to bind web-component events to react component event prop. See the [useEvent demo](https://javadbat.github.io/design-system/?path=/story/components-jbcore-react--use-event).
 
 ```jsx
 import {useEvent} from 'jb-core/react';
@@ -19,7 +19,7 @@ useEvent(ref,'change',props.onChange);
 
 ### useInstance
 
-create a instance of an class inside a react component.
+create a instance of an class inside a react component. The [useInstance demo](https://javadbat.github.io/design-system/?path=/story/components-jbcore-react--use-instance) shows a persistent class instance across renders.
 
 ```jsx
 import {useInstance} from 'jb-core/react';
@@ -45,6 +45,10 @@ function YourComponent(){
 }
 ```
 
+## Shared Core Utilities
+
+The event, stylesheet, and ID helpers are shared with the web-component package. Use the [event interception utility](../README.md#listenandsilentevent), [event creation utilities](../README.md#create-events), [style injection utility](../README.md#inject-style), and [unique ID utility](../README.md#create-unique-id) from `jb-core`; their [interactive demos](https://javadbat.github.io/design-system/?path=/story/components-jbcore--create-events) are documented with the web-component API.
+
 ## Shared Documentation
 
-For web-component behavior, events, slots, and CSS variables, see [`jb-core`](https://github.com/javadbat/jb-core).
+For web-component behavior, events, slots, and CSS variables, see [`jb-core`](../README.md) and its [utility demos](https://javadbat.github.io/design-system/?path=/story/components-jbcore--listen-and-silent-event).

@@ -3,7 +3,7 @@ import type { JBColor } from "./jb-color";
 import { uniqueId } from "jb-core";
 import type { JBColorGroup, JBThemeColors } from "./types";
 
-function defineColor(color:JBColor , name?:string){
+export function defineColor(color:JBColor , name?:string){
 registerCssProperty({
     name: name??color.variableName??`--${uniqueId()}`,
     syntax: "<color>",
@@ -25,7 +25,6 @@ export function defineColorCodes(colors:JBThemeColors){
   defineColorGroup(colors.primary);
   defineColorGroup(colors.secondary);
   defineColorGroup(colors.red);
-  defineColorGroup(colors.red);
   defineColorGroup(colors.green);
   defineColorGroup(colors.yellow);
   defineColor(colors.single.black);
@@ -34,10 +33,4 @@ export function defineColorCodes(colors:JBThemeColors){
   for(let i=1;i<=10;i++){
     defineColor(colors.neutral[i])
   }
-}
-
-export function defineTextColors(colors:JBThemeColors) {
-  defineColor(colors.single.black, "--jb-text-primary");
-  defineColor(colors.neutral[7], "--jb-text-secondary");
-  defineColor(colors.single.white, "--jb-text-contrast");
 }

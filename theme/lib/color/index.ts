@@ -1,6 +1,7 @@
 import { defaultColors } from "./constants";
-import { defineColorCodes, defineTextColors } from "./define-colors";
+import { defineColorCodes } from "./define-colors";
 import { JBColor } from "./jb-color";
+import { defineSemanticColors } from "./semantics";
 import type { ColorGroupsKey, JBColorGroup, JBThemeColors, OklchParams } from "./types";
 import { createColorGroup } from "./utils";
 export * from './utils';
@@ -12,7 +13,7 @@ export { defaultColors };
 
 export function defineColors() {
   defineColorCodes(defaultColors);
-  defineTextColors(defaultColors);
+  defineSemanticColors();
 }
 
 
@@ -42,7 +43,7 @@ export type CreateThemeColorParameter = {[key in ColorGroupsKey]?:OklchParams}
 export function createThemeColor(parameter: CreateThemeColorParameter): Partial<JBThemeColors> {
   const themeColors: Partial<JBThemeColors> = {};
   Object.keys(parameter).forEach((key: string) => {
-    const baseColor = new JBColor(parameter[key as ColorGroupsKey]!, `---jb-${key}`);
+    const baseColor = new JBColor(parameter[key as ColorGroupsKey]!, `--jb-${key}`);
     const colorGroup = createColorGroup(baseColor);
     themeColors[key as ColorGroupsKey] = colorGroup;
   });

@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- Added semantic `--jb-content-primary`, `--jb-content-secondary`, `--jb-content-inverse`, `--jb-surface-primary`, `--jb-surface-secondary`, and `--jb-surface-inverse` color tokens derived from the primitive palette.
+- Documented semantic color mappings, intended usage, palette customization, and scoped theme overrides.
+
 ## [0.30.0] - 2026-07-14
 
 ### Added

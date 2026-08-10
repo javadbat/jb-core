@@ -3,7 +3,7 @@ import { defaultColors } from "./constants";
 import type { JBColor } from "./jb-color";
 
 export function defineSemanticColors() {
-  defineTextColors();
+  defineContentColors();
   defineSurfaceColors();
 }
 function defineSurfaceColors() {
@@ -11,10 +11,10 @@ function defineSurfaceColors() {
   defineSemanticColor("--jb-surface-secondary", defaultColors.neutral[10]);
   defineSemanticColor("--jb-surface-inverse", defaultColors.single.black);
 }
-function defineTextColors() {
-  defineSemanticColor("--jb-text-primary", defaultColors.single.black);
-  defineSemanticColor("--jb-text-secondary", defaultColors.neutral[7]);
-  defineSemanticColor("--jb-text-inverse", defaultColors.single.white);
+function defineContentColors() {
+  defineSemanticColor("--jb-content-primary", defaultColors.single.black);
+  defineSemanticColor("--jb-content-secondary", defaultColors.neutral[7]);
+  defineSemanticColor("--jb-content-inverse", defaultColors.single.white);
 }
 
 function defineSemanticColor(semanticVariableName: `--${string}`, color: JBColor) {

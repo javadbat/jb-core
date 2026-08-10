@@ -15,6 +15,104 @@ import {defaultColors as colors} from 'jb-core/theme';
   <ColorItem title="warning" subtitle="--jb-yellow,--jb-yellow-[name]" colors={{'main':colors.yellow.main.value, 'l(lighter)':colors.yellow.light.value, "d(dark)":colors.yellow.dark.value,'subtle':colors.yellow.subtle.value, 'contrast':colors.yellow.contrast.value,'hover':colors.yellow.hover.value, 'pressed':colors.yellow.pressed.value}}/>
 </ColorPalette>
 
+<Subheading>Semantic color tokens</Subheading>
+
+Semantic color tokens describe how a color is used instead of how it looks. Content tokens represent foreground content such as text, icons, and SVG strokes. Components should prefer semantic tokens over primitive tokens such as `--jb-black` or `--jb-neutral-7`. This keeps component styles independent from the primitive palette and makes theme changes easier.
+
+The default semantic tokens are aliases of primitive colors, so changing a primitive also updates every semantic token that references it.
+
+<table>
+  <thead>
+    <tr>
+      <th>Token</th>
+      <th>Default primitive</th>
+      <th>Intended use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>--jb-content-primary</code></td>
+      <td><code>--jb-black</code></td>
+      <td>Primary text, labels, and high-emphasis content</td>
+    </tr>
+    <tr>
+      <td><code>--jb-content-secondary</code></td>
+      <td><code>--jb-neutral-7</code></td>
+      <td>Supporting text, descriptions, and lower-emphasis content</td>
+    </tr>
+    <tr>
+      <td><code>--jb-content-inverse</code></td>
+      <td><code>--jb-white</code></td>
+      <td>Text displayed on an inverse or dark surface</td>
+    </tr>
+    <tr>
+      <td><code>--jb-surface-primary</code></td>
+      <td><code>--jb-white</code></td>
+      <td>Main page and component surfaces</td>
+    </tr>
+    <tr>
+      <td><code>--jb-surface-secondary</code></td>
+      <td><code>--jb-neutral-10</code></td>
+      <td>Secondary or visually separated surfaces</td>
+    </tr>
+    <tr>
+      <td><code>--jb-surface-inverse</code></td>
+      <td><code>--jb-black</code></td>
+      <td>Surfaces that invert the default light theme</td>
+    </tr>
+  </tbody>
+</table>
+
+Use semantic tokens in component styles:
+
+```css
+.card {
+  color: var(--jb-content-primary);
+  background-color: var(--jb-surface-primary);
+}
+
+.card__description {
+  color: var(--jb-content-secondary);
+}
+
+.card--inverse {
+  color: var(--jb-content-inverse);
+  background-color: var(--jb-surface-inverse);
+}
+```
+
+To change the palette while preserving the default semantic relationships, override the primitive tokens:
+
+```css
+:root {
+  --jb-black: oklch(0.2 0.02 258);
+  --jb-white: oklch(0.98 0.005 258);
+  --jb-neutral-7: oklch(0.55 0.015 258);
+  --jb-neutral-10: oklch(0.94 0.008 258);
+}
+```
+
+You can also remap semantic roles within a specific theme or application section:
+
+```css
+.dark-theme {
+  --jb-content-primary: var(--jb-white);
+  --jb-content-secondary: var(--jb-neutral-8);
+  --jb-content-inverse: var(--jb-black);
+  --jb-surface-primary: var(--jb-black);
+  --jb-surface-secondary: var(--jb-neutral-1);
+  --jb-surface-inverse: var(--jb-white);
+}
+```
+
+When adding component variables, keep a component-level override first and a semantic token as its default:
+
+```css
+:host {
+  --label-color: var(--jb-input-label-color, var(--jb-content-primary));
+}
+```
+
 
 <Subheading>Customize Component colors</Subheading>
 

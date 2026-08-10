@@ -17,3 +17,15 @@ export function parseBooleanAttribute(value: string | null, defaultValue = false
   }
   return Boolean(value);
 }
+
+/**
+ * Converts a string attribute value to a finite number.
+ * Returns the default value when the attribute is missing, empty, or invalid.
+ */
+export function parseNumberAttribute(value: string | null, defaultValue = 0): number {
+  if (value === null || value.trim() === "") {
+    return defaultValue;
+  }
+  const parsedValue = Number(value);
+  return Number.isFinite(parsedValue) ? parsedValue : defaultValue;
+}

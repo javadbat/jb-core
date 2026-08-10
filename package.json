@@ -13,6 +13,7 @@
     "event",
     "react component tools",
     "theme",
+    "i18n",
     "event"
   ],
   "version": "0.31.0",

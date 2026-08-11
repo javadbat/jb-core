@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.32.0] - 2026-08-11
+
+### Added
+
+- add `parseNumberAttribute` to parse string attribute to number property
+
 ## [0.31.0] - 2026-08-10
 
 ### Added

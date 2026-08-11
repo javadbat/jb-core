@@ -69,3 +69,29 @@ const id = uniqueId('prefix');
 document.querySelector('jb-button').setAttribute('id',id)
 ```
 Generate prefixed identifiers in the [unique ID demo](https://javadbat.github.io/design-system/?path=/story/components-jbcore--unique-id).
+
+## Parse attribute values
+
+Use `parseBooleanAttribute` and `parseNumberAttribute` to convert string attribute values in web components while providing a fallback for missing or invalid values.
+
+### `parseBooleanAttribute`
+
+Converts a string attribute value to a boolean. A missing attribute (`null`) returns the provided default value. An empty string or `"true"` returns `true`, while `"false"` returns `false`.
+
+```ts
+import {parseBooleanAttribute} from 'jb-core';
+
+const disabled = parseBooleanAttribute(this.getAttribute('disabled'));
+const enabled = parseBooleanAttribute(this.getAttribute('enabled'), true);
+```
+
+### `parseNumberAttribute`
+
+Converts a string attribute value to a finite number. A missing, empty, or invalid value returns the provided default value.
+
+```ts
+import {parseNumberAttribute} from 'jb-core';
+
+const min = parseNumberAttribute(this.getAttribute('min'));
+const max = parseNumberAttribute(this.getAttribute('max'), 100);
+```

@@ -1,6 +1,16 @@
 # Changelog
 
-## ## [0.33.0] - 2026-08-14
+## [0.34.0] - 2026-08-14
+
+### Added
+
+- Added the exported SSR-safe `JBBaseComponent` fallback for web components imported in environments without `HTMLElement`.
+
+### Changed
+
+- Marked the `jb-core/theme` package as an ES module for consistent Node.js loading.
+
+## [0.33.0] - 2026-08-14
 
 ### Added
 

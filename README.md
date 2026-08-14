@@ -18,6 +18,28 @@ See the [React module documentation](https://javadbat.github.io/design-system/?p
 
 to see i18n modules please see [`jb-core/i18n`](https://github.com/javadbat/jb-core/tree/main/i18n) and its [Storybook documentation](https://javadbat.github.io/design-system/?path=/story/components-jbcore-i18n-readme--docs).
 
+## SSR-safe web components
+
+Extend `JBBaseComponent` instead of `HTMLElement` when a web-component module must be importable during server-side rendering. In a browser, `JBBaseComponent` is the native `HTMLElement`. In environments such as Node.js where `HTMLElement` is unavailable, it uses a safe fallback so evaluating the module does not throw.
+
+```ts
+import { JBBaseComponent } from "jb-core";
+
+export class MyWebComponent extends JBBaseComponent {
+  constructor() {
+    super();
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    // Browser-only initialization belongs in the constructor or lifecycle methods.
+  }
+}
+
+if (globalThis.customElements && !globalThis.customElements.get("my-component")) {
+  globalThis.customElements.define("my-component", MyWebComponent);
+}
+```
+
+This makes importing the component safe during SSR; it does not run DOM behavior on the server. The browser creates or upgrades the custom element and runs its constructor and lifecycle callbacks during hydration. Keep other browser-only APIs such as `document`, `window`, and `ResizeObserver` out of module-scope expressions.
+
 ## listenAndSilentEvent
 
 this function listen to event in the capture phase and stop it's propagation and call your handler so you will be the only one who capture this event used for event forwarding (transformation) in web-components. See the [event interception demo](https://javadbat.github.io/design-system/?path=/story/components-jbcore--listen-and-silent-event).

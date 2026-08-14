@@ -16,7 +16,7 @@
     "i18n",
     "event"
   ],
-  "version": "0.32.0",
+  "version": "0.33.0",
   "bugs": "https://github.com/javadbat/jb-core/issues",
   "license": "MIT",
   "files": [
@@ -45,6 +45,10 @@
     "./i18n": {
       "types": "./i18n/dist/index.d.ts",
       "default": "./i18n/dist/index.js"
+    },
+    "./i18n/react": {
+      "types": "./i18n/react/dist/index.d.ts",
+      "default": "./i18n/react/dist/index.js"
     },
     "./theme": {
       "types": "./theme/dist/index.d.ts",

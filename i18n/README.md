@@ -1,69 +1,125 @@
-# JB I18N Module
+# JB i18n
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/jb-core)
-[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://raw.githubusercontent.com/javadbat/jb-core/main/LICENSE)
-[![NPM Version](https://img.shields.io/npm/v/jb-core-i18n)](https://www.npmjs.com/package/jb-core-i18n)
-![GitHub Created At](https://img.shields.io/github/created-at/javadbat/jb-core)
+`jb-core/i18n` is a small locale coordinator for JB Design System. It is not a
+replacement for a full application i18n library.
 
-## config file
-JB Design System use html tag `lang` attribute to set the default language of it's components.
+## Locale
+
+The shared instance reads the document language when it is created:
 
 ```html
 <html lang="fa">
-  <!-- or -->
-<html lang="en">
 ```
 
-if you want to set your locale manually in javascript you just have to import `i18n` and set your default locale:
+You can also update it explicitly. Locale-aware JB components subscribe to this
+instance and update unless their related property or attribute was explicitly
+set by the consumer.
 
 ```ts
-import {i18n} from 'jb-core/i18n';
-// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale for more setting detail
-i18n.setLocale(new Intl.Locale("fa"))
+import { i18n } from "jb-core/i18n";
+
+i18n.setLocale("fa-IR");
+```
+
+`setLocale` accepts either a locale string or an `Intl.Locale`. JB supplies a
+default calendar, region, and Latin numbering system when they are omitted:
+
+- `en` resolves to Gregorian, US, and Latin digits.
+- `fa` resolves to Persian, IR, and Latin digits.
+
+Explicit Unicode options are preserved, so Persian digits can be requested
+with `fa-IR-u-nu-arabext`.
+
+The module can be imported without browser globals. In SSR and other DOM-free
+environments its initial locale is English. The document language is read once;
+changing `<html lang>` later does not update the instance automatically.
+
+Use `new JBI18N(locale)` when an independent instance is needed:
+
+```ts
+import { JBI18N } from "jb-core/i18n";
+
+const context = new JBI18N("en-GB");
+```
+
+### Listen for locale changes
+
+`subscribe` returns its cleanup function:
+
+```ts
+const unsubscribe = i18n.subscribe(() => {
+  renderWithLocale(i18n.locale);
+});
+
+unsubscribe();
+```
+
+### React
+
+The React hook subscribes the component to locale changes and returns the i18n
+context:
+
+```tsx
+import { useJBI18N } from "jb-core/i18n/react";
+
+function Toolbar() {
+  const context = useJBI18N();
+  return <span>{context.locale.language}</span>;
+}
 ```
 
 ## Dictionary
 
-Dictionary is where we keep our messages and texts string for different languages
+`JBDictionary` stores component messages. Values may be strings, functions, or
+nested objects; the dictionary shape does not need to be flattened.
 
 ```ts
-import {JBDictionary} from 'jb-core/i18n';
+import { i18n, JBDictionary } from "jb-core/i18n";
 
-export const dictionary = new JBDictionary({
-  "fa":{
-    yourKey:"مقدار شما"
+const dictionary = new JBDictionary({
+  fa: {
+    toolbar: {
+      save: "ذخیره",
+    },
   },
-  "en":{
-    yourKey:"your value"
-  }
+  en: {
+    toolbar: {
+      save: "Save",
+    },
+  },
+});
+
+dictionary.get(i18n, "toolbar").save;
+```
+
+Use `setLanguage` to add or replace a language:
+
+```ts
+dictionary.setLanguage("de", {
+  toolbar: {
+    save: "Speichern",
+  },
 });
 ```
-### Add new language
 
-you can add or replace currently exists language by using `setLanguage` method.
+Lookup checks the full regional locale, its base language, the configured
+fallback language, and English. Falsy values such as `""`, `0`, `false`, and
+`null` are treated as valid values. When no value is found, `get` logs an error
+and returns an empty string.
 
 ```ts
-dictionary.setLanguage("jp",{yourKey:"あなたの鍵"})
+const dictionary = new JBDictionary(messages, {
+  fallbackLanguage: "de",
+});
 ```
 
-### getValue
+## Internal helpers
+
+Helpers such as `getRequiredMessage` are intended for JB Design System modules,
+but are also available to custom JB-based components.
 
 ```ts
-import {i18n} from "jb-core/i18n";
+import { getRequiredMessage, i18n } from "jb-core/i18n";
 
-dictionary.get(i18n,"yourKey")
-```
-
-## Internal Methods
-
-this methods are internal methods and intended to be used inside jb design system modules but you can also use them if you are creating modules
-
-### getRequiredMessage
-used to get error message of required filed based on their label
-
-```ts
-getRequiredMessage(context:JBI18N,label?:string)
-//example
-import {i18n,getRequiredMessage} from 'jb-core/i18n';
-getRequiredMessage(i18n,"your label");
+getRequiredMessage(i18n, "email");
 ```

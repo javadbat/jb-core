@@ -1,0 +1,7 @@
+{
+  "unstable": ["sloppy-imports"],
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "deno.ns", "esnext"],
+    "strict": true
+  }
+}

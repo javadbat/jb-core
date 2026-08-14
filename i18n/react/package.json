@@ -1,0 +1,11 @@
+{
+  "name": "jb-core-i18n-react",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "peerDependencies": {
+    "jb-core": "^0.32.0",
+    "react": ">=18"
+  }
+}

@@ -1,5 +1,20 @@
 # Changelog
 
+## ## [0.33.0] - 2026-08-14
+
+### Added
+
+- Added SSR-safe locale initialization, the exported `resolveLocale()` helper, and support for locale strings or `Intl.Locale` instances in `JBI18N` and `setLocale()`.
+- Added `JBI18N.subscribe()` with cleanup support for locale-change listeners.
+- Added the `jb-core/i18n/react` entry point with the `useJBI18N()` hook.
+- Added configurable `JBDictionary` fallback languages and regional-locale lookup.
+
+### Changed
+
+- Changed locale defaults to preserve explicitly supplied region, calendar, and numbering-system options.
+- Changed dictionary lookup to preserve falsy values and report keys missing from every fallback dictionary.
+- Removed automatic `<html lang>` observation; consumers can update the shared locale explicitly with `i18n.setLocale()`.
+
 ## [0.32.0] - 2026-08-11
 
 ### Added

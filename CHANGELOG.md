@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Changed
+
+- Added the shared SSR-safe `defineWebComponent()` registration helper with environment and duplicate-definition guards.
+
 ## [0.34.0] - 2026-08-14
 
 ### Added

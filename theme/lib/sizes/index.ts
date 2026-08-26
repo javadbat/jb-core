@@ -1,6 +1,7 @@
 import { registerCssProperty } from "../utils.js";
 
 export function defineSizes() {
+  defineBreakpointVariables();
   defineRadiusVariables();
   defineControlHeightVariables();
 }
@@ -79,5 +80,25 @@ function defineControlHeightVariables() {
     value: "4rem",
     initialValue: "64px",
     syntax: "<length-percentage>",
+  });
+}
+
+// Currently we just define this and we knew that using var in @custom-media not worked. but when it get supported in lightning css we will update styles to use it. 
+export type JBBreakpointsSizes = 'sm' | 'md' | 'lg' | 'xl'
+export const breakPoints: Record<JBBreakpointsSizes, number> = {
+  sm: 640, 
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+};
+function defineBreakpointVariables() {
+  Object.keys(breakPoints).forEach((key) => {
+    registerCssProperty({
+      name: `--jb-breakpoint-${key}`,
+      inherits: true,
+      value: `${breakPoints[key as JBBreakpointsSizes]/16}rem`,
+      initialValue: `${breakPoints[key as JBBreakpointsSizes]}px`,
+      syntax: "<length-percentage>",
+    });
   });
 }

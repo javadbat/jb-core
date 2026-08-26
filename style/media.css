@@ -1,0 +1,4 @@
+@custom-media --jb-viewport-md-from (width > 48rem);
+@custom-media --jb-viewport-md-to (width <= 48rem);
+@custom-media --jb-viewport-sm-from (width > 40rem);
+@custom-media --jb-viewport-sm-to (width <= 40rem);

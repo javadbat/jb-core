@@ -7,6 +7,26 @@
 
 core modules of jb-design system mostly contain functions that help you manage your web-components & tools to connect them to ReactJS components.
 
+## Device detection
+
+`jb-core` exports two SSR-safe helpers for coarse device detection:
+
+```ts
+import {isMobile, isTablet} from "jb-core";
+
+if (isMobile()) {
+  // Mobile user agent
+}
+
+if (isTablet()) {
+  // Tablet user agent, including iPadOS desktop-mode user agents
+}
+```
+
+`isMobile()` checks the browser user agent for mobile devices. `isTablet()` recognizes common tablet user agents, Android devices without the `Mobi` marker, and iPadOS devices that identify as Macintosh while reporting touch points. Both methods return `false` when `navigator` is unavailable, so they can be called safely during server-side rendering.
+
+These helpers detect device characteristics from the user agent; they do not replace viewport media queries for responsive layout. For viewport-based styling, use the shared media tokens documented in [Theme/Sizes](./theme/stories/sizes.mdx).
+
 
 ## React Modules
 

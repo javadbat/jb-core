@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.36.0] - 2026-08-21
+
+### Added - 2026-08-26
+
+- add Viewport breakpoint design token, and custom media.
+
 ## [0.35.0] - 2026-08-21
 
 ### Changed

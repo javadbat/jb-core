@@ -13,6 +13,19 @@ import {defineSizes} from 'jb-core/theme';
 // it will define all size related css variables in @property and :root you can also customize them in your css
 defineSizes();
 ```
+
+### device detection helpers
+
+For JavaScript decisions that depend on the broad device category, `jb-core` exports `isMobile()` and `isTablet()`:
+```ts
+import {isMobile, isTablet} from 'jb-core';
+
+isMobile(); // true for mobile user agents
+isTablet(); // true for common tablet user agents
+```
+> this methods works base on user agents not device size.
+
+The helpers are safe to call during server-side rendering and return `false` when `navigator` is unavailable. They use user-agent and touch-point detection, so use the viewport media tokens above when the decision is about available layout space rather than device type.
 ## standards
 
  we use `rem` unit as a sizing standard of our components so components and layout could effectively respond to user zoom and text size settings.
@@ -44,3 +57,53 @@ Control height tokens keep interactive controls such as buttons, inputs, and sel
 - `--jb-control-height-md`:2.5rem (40px) - medium and default controls
 - `--jb-control-height-lg`:3rem (48px) - large controls
 - `--jb-control-height-xl`:4rem (64px) - extra-large controls
+
+## breakpoints
+
+Breakpoint tokens are registered by `defineSizes()` and are available as inherited CSS custom properties. Their values are expressed in `rem` so they respond consistently to the document's root font size.
+
+- `--jb-breakpoint-sm`:40rem (640px)
+- `--jb-breakpoint-md`:48rem (768px)
+- `--jb-breakpoint-lg`:64rem (1024px)
+- `--jb-breakpoint-xl`:80rem (1280px)
+
+The corresponding JavaScript values are exported as `breakPoints`:
+
+```ts
+import {breakPoints} from 'jb-core/theme';
+
+breakPoints.sm; // 640
+breakPoints.md; // 768
+breakPoints.lg; // 1024
+breakPoints.xl; // 1280
+```
+
+Use the CSS tokens for styles and `breakPoints` when JavaScript needs to make the same size-based decision. The values in `breakPoints` are pixel numbers; the CSS tokens resolve to rem values.
+
+## viewport media tokens
+
+Import the shared media file when defining responsive component styles:
+
+```css
+@import "jb-core/style/media.css";
+
+@media (--jb-viewport-sm-to) {
+  /* viewport width <= 40rem */
+}
+
+@media (--jb-viewport-sm-from) {
+  /* viewport width > 40rem */
+}
+
+@media (--jb-viewport-md-to) {
+  /* viewport width <= 48rem */
+}
+
+@media (--jb-viewport-md-from) {
+  /* viewport width > 48rem */
+}
+```
+
+These are CSS custom media queries, not CSS variables. Use them directly in `@media` rules; do not wrap them in `var(...)`.
+
+

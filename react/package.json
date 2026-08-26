@@ -23,6 +23,6 @@
   "types": "./dist/index.d.ts",
   "repository": {
 		"type": "git",
-		"url": "git@github.com:javadbat/jb-core.git"
+		"url": "https://github.com/javadbat/jb-core.git"
   }
 }

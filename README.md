@@ -78,7 +78,7 @@ these functions will create events based on existing event objects used mostly f
     const event = createInputEvent('input', e, { cancelable: false });
     this.dispatchEvent(event);
   }
-    #onInputKeyup(e:KeyboardEvent){
+    #onInputKeyUp(e:KeyboardEvent){
     const event = createKeyboardEvent('keyup', e, { cancelable: false });
     this.dispatchEvent(event);
   }

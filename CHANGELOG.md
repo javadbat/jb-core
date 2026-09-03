@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.0] - 2026-09-03
+
+### Changed
+
+- Published the coordinated JB Design System contract and documentation updates.
+
 ## [0.36.0] - 2026-08-21
 
 ### Added - 2026-08-26

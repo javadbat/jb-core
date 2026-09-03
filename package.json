@@ -16,7 +16,7 @@
     "i18n",
     "event"
   ],
-  "version": "0.36.0",
+  "version": "1.0.0",
   "bugs": "https://github.com/javadbat/jb-core/issues",
   "license": "MIT",
   "files": [

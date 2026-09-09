@@ -5,6 +5,10 @@
 [![NPM Version](https://img.shields.io/npm/v/jb-core-react)](https://www.npmjs.com/package/jb-core-react)
 ![GitHub Created At](https://img.shields.io/github/created-at/javadbat/jb-core)
 
+## useDirectProps
+
+For custom-element wrappers that emit `init` synchronously on connection, use `useDirectProps<TElement, TProps>(props)` to expose the ref and defer props until initialization. Spread the returned `directProps` onto the element and pass `element` to its `ref`. The initial props include the `oninit` listener so it is registered before connection. An optional `onInit` callback receives the event; the hook consumes `ref` and `onInit` rather than forwarding them as DOM properties. `UseDirectPropsReturn<TElement, TProps>` describes the returned ref and partial props.
+
 ## useEvent
 
 used to bind web-component events to react component event prop. See the [useEvent demo](https://javadbat.github.io/design-system/?path=/story/components-jbcore-react--use-event).

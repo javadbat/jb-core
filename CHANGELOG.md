@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.37.0] - 2026-09-10
+
+### Added
+
+- Add typed `useDirectProps` for React wrappers, with deferred props, ref exposure, and an optional `onInit` callback.
+
 ## [0.36.0] - 2026-08-21
 
 ### Added - 2026-08-26

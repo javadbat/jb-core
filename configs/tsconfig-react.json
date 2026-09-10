@@ -13,7 +13,7 @@
         "noImplicitAny": false,
         "noLib": false,
         "declaration": true,
-        "declarationDir": "./",
+        "outDir": "./",
         "declarationMap": false,
         "jsx": "react",
         "types": ["jb-core/configs/global"],

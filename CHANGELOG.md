@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.38.0] - 2026-09-28
+
+### Added
+
+- add `--jb-corner-shape` & `jb-shadow-sm` & `jb-control-shadow` & `jb-control-shadow-focus` to standard css tokens
+
 ## [0.37.0] - 2026-09-10
 
 ### Added

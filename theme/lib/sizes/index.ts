@@ -7,6 +7,12 @@ export function defineSizes() {
 }
 function defineRadiusVariables() {
   // we use px instead of rem because css variables are not support rem as default value and we need to set rem value in a root element
+    registerCssProperty({
+    name: "--jb-corner-shape",
+    inherits: true,
+    initialValue: "round",
+    syntax: "<corner-shape-value>",
+  });
   registerCssProperty({
     name: "--jb-radius",
     inherits: true,

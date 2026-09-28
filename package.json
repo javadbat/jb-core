@@ -17,7 +17,7 @@
     "event",
     "jb-design-system"
   ],
-  "version": "0.37.0",
+  "version": "0.38.0",
   "bugs": "https://github.com/javadbat/jb-core/issues",
   "license": "MIT",
   "files": [
